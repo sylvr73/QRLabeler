@@ -1,0 +1,51 @@
+﻿Help document: https://docs.google.com/document/d/1hBaaTKVecMaKYscvE22723sIFfYYNCP4GhLaUfO8u0A/edit?usp=sharing
+
+* To generate judging labels:
+  
+  QRLabeler.exe -j -d [CSV of entry data] -f [PDF output file name] -n [labels per entry]
+  
+  For example "Electronic_Scoresheet..." is the website data export and the labels will put put in
+    "JudgingLabels.pdf" with the following command:
+    
+    QRLabeler.exe -j -d Electronic_Scoresheet_Practice_Sandbox_Entries_Paid_02-12-2022.csv -f JudgingLabels.pdf -n 2
+
+  ** The "Electronic_Scoresheet..." file is from the "Data Exports" section of the website, "Paid & Received Entries"
+
+
+* To create bottle labels:
+  
+  QRLabeler.exe -b -d [CSV of entry data] -f [PDF output file name] -n [labels per entry]
+
+  For example "Electronic_Scoresheet..." is the website data export and the labels will put put in
+    "BottleLabels.pdf" with the following command:
+
+    QRLabeler.exe -b -d Electronic_Scoresheet_Practice_Sandbox_Entries_Paid_02-12-2022.csv -f BottleLabels.pdf -n 2
+
+  ** The "Electronic_Scoresheet..." file is from the "Data Exports" section of the website, "Paid & Received Entries"
+
+
+* To convert PDFs of many scoresheets with QR code labels into individual PDFs per entry:
+
+  QRLabeler.exe -r [source directory] -o [output directory] -d [CSV of entry data]
+
+  For example, "TableSheets"" is the name of the directory where the table pdfs can be found and "output" is the name of 
+    the directory where PDFs of the score sheets per entry should be placed:
+
+    QRLabeler.exe -r TableSheets -o output -d Electronic_Scoresheet_Practice_Sandbox_Entries_Paid_02-12-2022.csv
+
+* To combine multiple files in the same directory where one has an entry number and the other a judging number:
+ 
+  QRLabeler.exe -c -d [CSV of entry data] -o [output directory from the "-r" mode, where the corrections are]
+
+  For example:
+
+  QRLabeler.exe -c -d Electronic_Scoresheet_Practice_Sandbox_Entries_Paid_02-12-2022.csv -o output
+  
+  **************************************************************************************************************
+  **************************************************************************************************************
+  ***
+  ***   Please see make.bat, load.bat, and combine.bat for examples and further help.
+  ***
+  **************************************************************************************************************
+  **************************************************************************************************************
+  

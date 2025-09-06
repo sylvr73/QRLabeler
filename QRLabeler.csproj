@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\OpenCvSharp4.runtime.win.4.10.0.20241108\build\net48\OpenCvSharp4.runtime.win.props" Condition="Exists('packages\OpenCvSharp4.runtime.win.4.10.0.20241108\build\net48\OpenCvSharp4.runtime.win.props')" />
+  <Import Project="packages\SixLabors.ImageSharp.3.1.6\build\SixLabors.ImageSharp.props" Condition="Exists('packages\SixLabors.ImageSharp.3.1.6\build\SixLabors.ImageSharp.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FF46579-7AE1-435E-B199-D5D735916E09}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>QRLabeler</RootNamespace>
+    <AssemblyName>QRLabeler</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommandLine, Version=2.9.1.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>packages\CommandLineParser.2.9.1\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Ghostscript.NET, Version=1.2.3.0, Culture=neutral, PublicKeyToken=f85051de34525b59, processorArchitecture=MSIL">
+      <HintPath>packages\Ghostscript.NET.1.2.3.1\lib\net40\Ghostscript.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.6.0.0\lib\net462\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel-gdi, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp-MigraDoc-gdi.1.50.5147\lib\net20\MigraDoc.DocumentObjectModel-gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering-gdi, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp-MigraDoc-gdi.1.50.5147\lib\net20\MigraDoc.Rendering-gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering-gdi, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp-MigraDoc-gdi.1.50.5147\lib\net20\MigraDoc.RtfRendering-gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>packages\OpenCvSharp4.4.10.0.20241108\lib\net48\OpenCvSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
+      <HintPath>packages\OpenCvSharp4.Extensions.4.10.0.20241108\lib\net48\OpenCvSharp.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp-gdi, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp-MigraDoc-gdi.1.50.5147\lib\net20\PdfSharp-gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting-gdi, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>packages\PDFsharp-MigraDoc-gdi.1.50.5147\lib\net20\PdfSharp.Charting-gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCodeDecoderLibrary, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\QRCodeDecoderLibrary.2.0.1\lib\net462\QRCodeDecoderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCodeEncoderLibrary, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\QRCodeEncoderLibrary.2.0.1\lib\net462\QRCodeEncoderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.6.0.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>packages\QRCoder.1.6.0\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.8.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UglyToad.PdfPig, Version=0.1.9.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Core, Version=0.1.9.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.DocumentLayoutAnalysis, Version=0.1.9.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.DocumentLayoutAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Fonts, Version=0.1.9.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Package, Version=0.1.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.Package.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Tokenization, Version=0.1.9.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.Tokenization.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Tokens, Version=0.1.9.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>packages\PdfPig.0.1.9\lib\net471\UglyToad.PdfPig.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.10.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.10\lib\net48\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.10.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>packages\ZXing.Net.0.16.10\lib\net48\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommandLineOptions.cs" />
+    <Compile Include="Kentor.LabelGenerator\Create.cs" />
+    <Compile Include="Kentor.LabelGenerator\DocumentHelpers.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\DocumentType.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings_A4_105x37_L7182.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings_A4_70x36_L7181.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings_A4_70x37_L7180.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings_A4_99x33_L7162 .cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings_Avery_8167.cs" />
+    <Compile Include="Kentor.LabelGenerator\Models\LabelSettings_Avery_5960.cs" />
+    <Compile Include="Kentor.LabelGenerator\Utilities.cs" />
+    <Compile Include="Models\LabelData.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\FileHelpers.cs" />
+    <Compile Include="Utilities\QRHelpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="combine.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="load.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="make.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="QR Labeler Application.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="test_data.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Help.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <Content Include="useful_commands.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\SixLabors.ImageSharp.3.1.6\build\SixLabors.ImageSharp.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SixLabors.ImageSharp.3.1.6\build\SixLabors.ImageSharp.props'))" />
+    <Error Condition="!Exists('packages\OpenCvSharp4.runtime.win.4.10.0.20241108\build\net48\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\OpenCvSharp4.runtime.win.4.10.0.20241108\build\net48\OpenCvSharp4.runtime.win.props'))" />
+  </Target>
+</Project>

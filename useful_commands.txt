@@ -1,0 +1,2 @@
+﻿-b -d Wortapalooza_Entries_All_All_2025-06-13.csv -f Wortapalooza_Bottles_2025.pdf -n 4	
+-j -d Wortapalooza_Entries_All_All_2025-06-13.csv -f Wortapalooza_Judging_2025.pdf -n 4
