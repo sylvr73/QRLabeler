@@ -200,7 +200,12 @@ namespace QRLabeler
                 }
                 entries.RemoveAll(e => e.TableNumber == 0);
 
-                entries.Sort((a, b) => a.EntryNumber.CompareTo(b.EntryNumber));
+                entries.Sort((a, b) =>
+                {
+                    if (int.TryParse(a.EntryNumber, out int aNum) && int.TryParse(b.EntryNumber, out int bNum))
+                        return aNum.CompareTo(bNum);
+                    return a.EntryNumber.CompareTo(b.EntryNumber);
+                });
                 //entries.Sort((a,b) =>
                 //{
                 //    var r = a.TableNumber.CompareTo(b.TableNumber);
